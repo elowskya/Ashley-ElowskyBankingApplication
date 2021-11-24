@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { createContext } from "react";
 
-import Navbar from "./components/Navbar";
+import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import CreateAccount from "./components/CreateAccount";
 import Login from "./components/Login";
@@ -15,7 +15,7 @@ export const UserContext = createContext();
 function App() {
   return (
     <Router>
-      <Navbar />
+      <Navigation />
       <UserContext.Provider
         value={{
           users: [
