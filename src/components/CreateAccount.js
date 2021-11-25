@@ -17,14 +17,22 @@ export default function CreateAccount() {
       password: "",
     },
     onSubmit: (values) => {
+      firstNameError.innerHTML = "";
+      lastNameError.innerHTML = "";
       emailError.innerHTML = "";
       pswError.innerHTML = "";
 
+      if (!values.firstName) {
+        firstNameError.innerHTML = "Field required";
+      }
+      if (!values.lastName) {
+        lastNameError.innerHTML = "Field required";
+      }
       if (!values.email) {
         emailError.innerHTML = "Field required";
       }
       if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        emailError.innerHTML = "Username should be an email";
+        emailError.innerHTML = "Please use a valid email";
       }
       if (!values.password) {
         pswError.innerHTML = "Field required";
@@ -32,6 +40,8 @@ export default function CreateAccount() {
         alert("Login Successful");
         // Reset to `initialValues`
         formik.resetForm();
+        firstNameError.innerHTML = "";
+        lastNameError.innerHTML = "";
         emailError.innerHTML = "";
         pswError.innerHTML = "";
       }
@@ -42,20 +52,23 @@ export default function CreateAccount() {
     <form onSubmit={formik.handleSubmit}>
     <label htmlFor="firstName">First Name</label>
     <input
-      id="firstName"
+      id="firstNameField"
       name="firstName"
       type="text"
       onChange={formik.handleChange}
       value={formik.values.firstName}
     />
+    <div id="firstNameError"></div>
     <label htmlFor="lastName">Last Name</label>
     <input
-      id="lastName"
+      id="lastNameField"
       name="lastName"
       type="text"
       onChange={formik.handleChange}
       value={formik.values.lastName}
     />
+    
+    <div id="lastNameError"></div>
       <label htmlFor="email">Email Address</label>
       <input
         id="emailField"
@@ -75,6 +88,7 @@ export default function CreateAccount() {
         value={formik.values.password}
       />
       <div id="pswError"></div>
+
       <button id="submitBtn" type="submit">
         Create Account
       </button>
