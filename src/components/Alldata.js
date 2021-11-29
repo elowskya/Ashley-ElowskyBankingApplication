@@ -3,5 +3,10 @@ import { UserContext } from "../App";
 
 export default function Alldata() {
   const ctx = useContext(UserContext);
-  return <div>AllData bg</div>;
+  const data = [{
+  }];
+  return <div>
+  
+  info coming
+  </div>;
 }
