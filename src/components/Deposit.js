@@ -12,21 +12,22 @@ export default function Deposit() {
       depositInput: "",
     },
     validate: (values) => {
+      console.log(typeof values.depositInput);
       const errors = {
         depositInput: ''
       };
 
       let hasErrors = false;
 
-      if (!values.depositInput) {
+      if (!Number(values.depositInput)) {
         errors.depositInput = "Please enter a number";
         hasErrors = true;
       } 
-      if (values.depositInput < 0) {
+      if (Number(values.depositInput) < 0) {
         errors.depositInput = "Must be a positive number";
         hasErrors = true;
       } 
-      if (values.depositInput === isNaN) {
+      if (Number(values.depositInput) === isNaN) {
         errors.depositInput = "Please enter a valid number";
         hasErrors = true;
       } 
@@ -58,36 +59,33 @@ export default function Deposit() {
         </Row>
 
         <Row>
-        <Col xs={12} md={4}></Col>
+        <Col xs={12}>
+        <Form.Group className="mb-3" controlId="balanceField">
+        <Form.Label>Balance</Form.Label>
+        <Form.Control type="number" placeholder="Current Balance"
+        name="balance"
+        value={76}
+        disabled='true'
+    />
+      </Form.Group>
+        </Col>
 
         <Col xs={12} md={4}>
         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="depositField">
           <Form.Label>Deposit Amount</Form.Label>
-          <Form.Control type="number" placeholder="Please enter amount to deposit" 
-          name='deposit'
+          <Form.Control type="text" placeholder="Please enter amount to deposit" 
+          name='depositInput'
           onChange={formik.handleChange}
-          value={formik.values.deposit}
+          value={formik.values.depositInput}
           /> 
           
-          {formik.errors.deposit && (
-            <p style={{color: 'red'}}> {formik.errors.deposit} </p> 
+          {formik.errors.depositInput && (
+            <p style={{color: 'red'}}> {formik.errors.depositInput} </p> 
             )}
             </Form.Group>
 
-        <Form.Group className="mb-3" controlId="balanceField">
-          <Form.Label>Balance</Form.Label>
-          <Form.Control type="number" placeholder="Current Balance"
-          name="balance"
-          onChange={formik.handleChange}
-          value={formik.values.balance}
-      />
-      {formik.errors.balance && (
-        <p style={{color: 'red'}}> {formik.errors.balance} </p> 
-        )}
-        </Form.Group>
-
-        <Button variant="primary" id="submitBtn" type="submit" disabled={!formik.isValid}>
+        <Button variant="primary" id="submitBtn" type="submit" disabled={!formik.isValid || !formik.values.depositInput}>
           Submit
         </Button>
       </Form>
