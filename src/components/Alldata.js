@@ -4,14 +4,7 @@ import { UserContext } from "../App";
 import { Table, Container } from 'react-bootstrap';
 
 export default function Alldata() {
-  const ctx = useContext(UserContext);
-  const usersMap = ctx.users.map(( user, index ) => (
-    <tr key={index}>
-    <td>{user.firstName} {user.lastName}</td>
-    <td>{user.email}</td>
-    <td>{user.password}</td>
-    </tr>
-  )); 
+  const ctx = useContext(UserContext); 
   
   return (
     <Container>
@@ -25,7 +18,13 @@ export default function Alldata() {
     </tr>
     </thead>
     <tbody>
-    {usersMap}
+    {ctx.users.map(( user, index ) => (
+      <tr key={index}>
+      <td>{user.firstName} {user.lastName}</td>
+      <td>{user.email}</td>
+      <td>{user.password}</td>
+      </tr>
+    ))}
     </tbody>
   </Table>
   </Container>
