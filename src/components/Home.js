@@ -5,6 +5,7 @@ import { Card, Container } from 'react-bootstrap';
 
 export default function Home() {
   const ctx = useContext(UserContext);
+  console.log(ctx);
   return (
     <Container>
     

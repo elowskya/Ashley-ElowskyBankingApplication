@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { UserContext } from "../App";
 
 import { Row, Col, Form, Button, Container } from 'react-bootstrap';
-import { Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 
 export default function Deposit() {
   const ctx = useContext(UserContext);
+  console.log(ctx);
 
   const formik = useFormik({
     initialValues: {

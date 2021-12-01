@@ -10,9 +10,7 @@ import Withdraw from "./components/Withdraw";
 import Balance from "./components/Balance";
 import Alldata from "./components/Alldata";
 
-
-
-export const UserContext = createContext();
+export const UserContext = createContext("");
 
 function App() {
   return (
@@ -22,8 +20,16 @@ function App() {
         value={{
           users: [
             {
-              name: "ashley",
-              email: "ashley.elowsky123@gmail.com",
+              firstName: "ashley",
+              lastName: "joe",
+              email: "ashley.joe@gmail.com",
+              password: "secret",
+              balance: 100,
+            },
+            {
+              firstName: "ashley",
+              lastName: "joe",
+              email: "ashley.joe@gmail.com",
               password: "secret",
               balance: 100,
             },
