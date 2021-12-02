@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { UserContext } from "./UserProvider";
-import { Table, Container } from 'react-bootstrap';
+import { Table, Card } from 'react-bootstrap';
 
 export default function Alldata() {
   const [users, setUsers] = useContext(UserContext); 
   console.log(users);
   return (
-    <Container>
-    <h1>page title</h1>
+    <Card>
+    <Card.Title as="h1">All Data</Card.Title>
+    <Card.Body>
     <Table striped bordered hover>
     <thead> 
     <tr>
@@ -26,6 +27,7 @@ export default function Alldata() {
     ))}
     </tbody>
   </Table>
-  </Container>
+  </Card.Body>
+  </Card>
   )
 }

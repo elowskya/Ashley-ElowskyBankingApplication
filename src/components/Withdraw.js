@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import UserProvider from "./UserProvider";
-import { Row, Col, Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Card } from 'react-bootstrap';
 import { useFormik } from "formik";
 
 export default function Withdraw() {
@@ -51,26 +51,18 @@ export default function Withdraw() {
     formik.resetForm();
   };
     return (
-        <Container>
-        <Row>
-            <Col>
-                <h1>page title</h1>
-            </Col>
-        </Row>
-
-        <Row>
-        <Col xs={12}>
+        <Card>
+            <Card.Title as="h1">Withdraw</Card.Title>
+        <Card.Body>
         <Form.Group className="mb-3" controlId="balanceField">
         <Form.Label>Balance</Form.Label>
         <Form.Control type="number" placeholder="Current Balance"
         name="balance"
-        value={76}
+        value={445}
         disabled='true'
     />
       </Form.Group>
-        </Col>
 
-        <Col xs={12} md={4}>
         <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="withdrawField">
           <Form.Label>Withdraw Amount</Form.Label>
@@ -89,10 +81,8 @@ export default function Withdraw() {
           Submit
         </Button>
       </Form>
-      </Col>
-
-      <Col xs={12} md={4}></Col>
-      </Row>
-      </Container>
+      
+      </Card.Body>
+      </Card>
     )
 }

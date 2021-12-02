@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { Row, Col, Form, Button, Container } from 'react-bootstrap';
+import { Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { UserContext } from "./UserProvider";
 import { useFormik } from "formik";
 
@@ -69,13 +69,9 @@ export default function CreateAccount() {
   };
   console.log(users);
     return (
-        <Container>
-        <Row>
-            <Col>
-                <h1>page title</h1>
-            </Col>
-        </Row>
-
+        <Card>
+            <Card.Title as="h1">Create Account</Card.Title>
+        <Card.Body>
         <Row>
         <Col xs={12} md={4}></Col>
 
@@ -132,13 +128,14 @@ export default function CreateAccount() {
         </Form.Group>
 
         <Button variant="primary" id="submitBtn" type="submit" disabled={!formik.isValid}>
-          Submit
+          Create Account
         </Button>
       </Form>
       </Col>
 
       <Col xs={12} md={4}></Col>
       </Row>
-      </Container>
+      </Card.Body>
+      </Card>
     )
 }

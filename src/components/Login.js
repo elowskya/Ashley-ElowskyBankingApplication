@@ -1,12 +1,11 @@
 import { useContext } from "react";
-import UserProvider from "./UserProvider";
-
-import BankForm from "./CreateAccount";
+import UserContext from "./UserProvider";
 
 export default function Login() {
-  const ctx = useContext(UserProvider);
-  console.log(ctx);
+  const [users, setUsers] = useContext(UserContext);
   return  (
-    <BankForm />
+    <>
+    there could be a login form happening
+    </>
   );
 }
