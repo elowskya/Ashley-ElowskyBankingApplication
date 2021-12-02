@@ -1,12 +1,11 @@
 import React from 'react';
 import { useContext } from 'react';
 import { Row, Col, Form, Button, Container } from 'react-bootstrap';
-import { UserContext } from "../App";
+import { UserContext } from "./UserProvider";
 import { useFormik } from "formik";
 
 export default function CreateAccount() {
-  const ctx = useContext(UserContext);
-  console.log(ctx);
+  const [users, setUsers] = useContext(UserContext);
 
   const formik = useFormik({
     initialValues: {
@@ -54,17 +53,21 @@ export default function CreateAccount() {
     validateOnChange: true,
   })
   
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     alert("Login Successful");
+    
     const user = {
-      ...formik.values
-    // formik.values.firstName
-    // formik.values.lastName
-    // formik.values.email
-    // formik.values.password
+      ...formik.values,
+      // formik.values.firstName
+      // formik.values.lastName
+      // formik.values.email
+      // formik.values.password
     }
+    setUsers(users.concat(user));
     formik.resetForm();
   };
+  console.log(users);
     return (
         <Container>
         <Row>

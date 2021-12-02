@@ -1,8 +1,7 @@
 import { useContext } from "react";
-import { UserContext } from "../App";
+import UserContext from "./UserProvider";
 
 export default function Balance() {
-  const ctx = useContext(UserContext);
-  console.log(ctx);
+  const [users, setUsers] = useContext(UserContext);
   return <div>Balance</div>;
 }

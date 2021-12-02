@@ -1,11 +1,10 @@
 import { useContext } from "react";
-import { UserContext } from "../App";
-
+import { UserContext } from "./UserProvider";
 import { Table, Container } from 'react-bootstrap';
 
 export default function Alldata() {
-  const ctx = useContext(UserContext); 
-  
+  const [users, setUsers] = useContext(UserContext); 
+  console.log(users);
   return (
     <Container>
     <h1>page title</h1>
@@ -18,7 +17,7 @@ export default function Alldata() {
     </tr>
     </thead>
     <tbody>
-    {ctx.users.map(( user, index ) => (
+    {users.map(( user, index ) => (
       <tr key={index}>
       <td>{user.firstName} {user.lastName}</td>
       <td>{user.email}</td>

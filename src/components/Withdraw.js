@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { UserContext } from "../App";
+import UserProvider from "./UserProvider";
 import { Row, Col, Form, Button, Container } from 'react-bootstrap';
 import { useFormik } from "formik";
 
 export default function Withdraw() {
-  const ctx = useContext(UserContext);
+  const ctx = useContext(UserProvider);
   console.log(ctx);
 
   const formik = useFormik({

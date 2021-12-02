@@ -1,6 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { createContext } from "react";
-
 import Navigation from "./components/Navigation";
 import Home from "./components/Home";
 import CreateAccount from "./components/CreateAccount";
@@ -9,33 +7,14 @@ import Deposit from "./components/Deposit";
 import Withdraw from "./components/Withdraw";
 import Balance from "./components/Balance";
 import Alldata from "./components/Alldata";
+// import UserProvider from "./components/UserProvider";
 
-export const UserContext = createContext("");
 
 function App() {
   return (
     <Router>
       <Navigation />
-      <UserContext.Provider
-        value={{
-          users: [
-            {
-              firstName: "ashley",
-              lastName: "joe",
-              email: "ashley.joe@gmail.com",
-              password: "secret",
-              balance: 100,
-            },
-            {
-              firstName: "ashley",
-              lastName: "joe",
-              email: "ashley.joe@gmail.com",
-              password: "secret",
-              balance: 100,
-            },
-          ],
-        }}
-      >
+      
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/CreateAccount" element={<CreateAccount />} />
@@ -45,7 +24,7 @@ function App() {
           <Route path="/balance" element={<Balance />} />
           <Route path="/alldata" element={<Alldata />} />
         </Routes>
-      </UserContext.Provider>
+      
     </Router>
   );
 }

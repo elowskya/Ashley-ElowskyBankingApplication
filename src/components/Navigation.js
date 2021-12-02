@@ -7,12 +7,12 @@ export default function Navigation() {
     <Navbar bg="dark" variant="dark">
     <Container>
     <Nav className="me-auto">
-      <Nav.Link href="/">The River Bank</Nav.Link>
-      <Nav.Link href="/CreateAccount">Create Account</Nav.Link>
-      <Nav.Link href="/login">Login</Nav.Link>
-      <Nav.Link href="/deposit">Deposit</Nav.Link>
-      <Nav.Link href="/withdraw">Withdraw</Nav.Link>
-      <Nav.Link href="/alldata">All Data</Nav.Link>
+      <Nav.Link><Link to="/">The River Bank</Link></Nav.Link>
+      <Nav.Link><Link to="/CreateAccount">Create Account</Link></Nav.Link>
+      <Nav.Link><Link to="/login">Login</Link></Nav.Link>
+      <Nav.Link><Link to="/deposit">Deposit</Link></Nav.Link>
+      <Nav.Link><Link to="/withdraw">Withdraw</Link></Nav.Link>
+      <Nav.Link><Link to="/alldata">All Data</Link></Nav.Link>
     </Nav>
     </Container>
   </Navbar>

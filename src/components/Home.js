@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { UserContext } from "../App";
+import UserProvider from "./UserProvider";
 import homeImg from '../assets/Img/zenHome.webp';
 import { Card, Container } from 'react-bootstrap';
 
 export default function Home() {
-  const ctx = useContext(UserContext);
+  const ctx = useContext(UserProvider);
   console.log(ctx);
   return (
     <Container>
