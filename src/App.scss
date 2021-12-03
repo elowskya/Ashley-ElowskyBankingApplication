@@ -1,0 +1,17 @@
+@import "~bootstrap/scss/bootstrap";
+
+.navbar,
+.navbar-nav,
+.nav-link a {
+    text-decoration: none;
+    color: rgb(87, 141, 148);
+    font-weight: 700;
+    
+    :visited { 
+        text-decoration: none;
+        color: rgb(87, 141, 148);
+    }
+    :hover {
+        color: goldenrod;
+    }
+}
